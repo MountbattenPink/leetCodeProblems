@@ -20,7 +20,7 @@ package com.olsh;
 
 public class PalindromeNumber {
 
-    public static boolean isPalindrome(int x) {
+    private static boolean isPalindrome(int x) {
         if (x > 0 && x < 10 ) return true;
         if (x < 0 || x%10==0) return false;
         int tail = 0;
