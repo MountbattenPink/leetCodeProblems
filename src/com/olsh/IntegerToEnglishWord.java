@@ -13,9 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 class IntegerToEnglishWord {
-    static Map<Integer, String[]> dictionary = new HashMap<>();
+    private static Map<Integer, String[]> dictionary = new HashMap<>();
 
-    public static String numberToWords(int num) {
+    private static String numberToWords(int num) {
         if (num == 0) return "Zero";
         StringBuilder res = new StringBuilder();
         dictionary.put(0, new String[]{"", "", "Ten"});
@@ -30,18 +30,15 @@ class IntegerToEnglishWord {
         dictionary.put(9, new String[]{"Nine", "Ninety", "Nineteen"});
         int[] threeDigits = new int[]{(num / 1_000_000_000) % 1_000, (num / 1_000_000) % 1_000, (num / 1_000) % 1_000, num % 1_000};
         String[] helpingWords = new String[]{"Billion", "Million", "Thousand", ""};
-        writeCurrentState(res, threeDigits[0], helpingWords[0], "N/A");
+        writeCurrentState(res, threeDigits[0], helpingWords[0]);
         for (int i = 1; i < 4; i++) {
-            writeCurrentState(res, threeDigits[i], helpingWords[i], helpingWords[i - 1]);
+            writeCurrentState(res, threeDigits[i], helpingWords[i]);
         }
         return res.toString().replaceAll("\\s{2,}", " ").trim();
     }
 
-    private static void writeCurrentState(StringBuilder res, int digit, String helpingWord, String wordBefore) {
-        if (digit == 0) {
-            return;
-        } else {
-            int index = 0;
+    private static void writeCurrentState(StringBuilder res, int digit, String helpingWord) {
+        if (digit != 0){
             if (digit / 100 != 0) res.append(dictionary.get(digit / 100)[0]).append(" Hundred ");
             if (digit / 10 % 10 == 1) res.append(dictionary.get(digit % 10)[2]);
             else
