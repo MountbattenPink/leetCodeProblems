@@ -1,0 +1,44 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class FindModeInBinarySearchTree {
+     public int[] findMode(TreeNode root) {
+           Map<Integer, Integer> modes = new HashMap<>();
+           countMedians(root, modes);
+           List<Integer> res = new ArrayList<>();
+           int max = 0;
+           for (Integer key: modes.keySet()){
+               int val = modes.get(key);
+               if (val>max){
+                   res.clear();
+                   res.add(key);
+                   max=val;
+               }
+               else if (val==max){
+                   res.add(key);
+                   max=val;
+               }
+           }
+           return res.stream().mapToInt(Integer::intValue).toArray();
+        }
+
+        public void countMedians(TreeNode root, Map<Integer, Integer> modes){
+           if (root==null){
+               return;
+           }
+           if (modes.containsKey(root.val)){
+                modes.replace(root.val, modes.get(root.val)+1);
+            }
+            else {
+               modes.put(root.val, 1);
+           }
+           countMedians(root.right, modes);
+           countMedians(root.left, modes);
+        }
+}
