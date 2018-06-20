@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+№ 647.
  Given a string, your task is to count how many palindromic substrings in this string.
 
  The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.
@@ -16,7 +17,6 @@ import java.util.List;
  Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
  Note:
  The input string length won't exceed 1000.
-
  */
 
 
