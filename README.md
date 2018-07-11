@@ -1,5 +1,5 @@
 # leetCodeProblems
-My aim is to solve 300 problems at leetCode.com
+My goal is to solve 300 problems at leetCode.com
 
 solved 27/300 so far
 
