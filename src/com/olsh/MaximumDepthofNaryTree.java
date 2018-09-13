@@ -17,6 +17,8 @@ Note:
 The depth of the tree is at most 1000.
 The total number of nodes is at most 5000.
 */
+package com.olsh;
+import com.olsh.entities.Node;
 
 class MaximumDepthofNaryTree {
     public int maxDepth(Node root) {
