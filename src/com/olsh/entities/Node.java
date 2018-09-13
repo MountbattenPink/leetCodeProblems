@@ -1,3 +1,5 @@
+package com.olsh.entities;
+
 class Node {
     public int val;
     public List<Node> children;
