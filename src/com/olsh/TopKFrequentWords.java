@@ -21,6 +21,8 @@ Follow up:
 Try to solve it in O(n log k) time and O(n) extra space.
 */
 
+package com.olsh;
+
 class TopKFrequentWords {
     public List<String> topKFrequent(String[] words, int k) {
         Map<String, Integer> frequencies = new HashMap<String, Integer>();
