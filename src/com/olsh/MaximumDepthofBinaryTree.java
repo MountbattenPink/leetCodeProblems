@@ -13,6 +13,9 @@ Given binary tree [3,9,20,null,null,15,7],
 return its depth = 3.
 */
 
+package com.olsh;
+import com.olsh.entities.TreeNode;
+
 class MaximumDepthofBinaryTree {
  public int maxDepth(TreeNode root) {
   return maxDepth(root, 0);
