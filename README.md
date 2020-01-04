@@ -1,8 +1,8 @@
 # leetCodeProblems
-My goal is to solve 300 problems at leetCode.com
+My goal is to solve 500 problems at leetCode.com
 
-solved 290/300 so far
+solved 300/300 so far
 
-165 easy
-117 medium
-8 hard
+168 easy
+123 medium
+9 hard
