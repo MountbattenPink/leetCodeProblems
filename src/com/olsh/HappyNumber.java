@@ -15,7 +15,7 @@ Explanation:
 12 + 02 + 02 = 1
 */
 
-class Solution {
+class HappyNumber {
     public boolean isHappy(int n) {
         Set<Integer>set = new HashSet<>();
         do {
