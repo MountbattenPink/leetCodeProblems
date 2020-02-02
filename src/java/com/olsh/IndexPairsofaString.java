@@ -21,18 +21,16 @@ Return the pairs [i,j] in sorted order (i.e. sort them by their first coordinate
 in case of ties sort them by their second coordinate).
 */
 package com.olsh;
-import java.lang.Set;
-import java.lang.HashSet;
-import java.lang.List;
-import java.lang.ArrayList;
-import java.lang.Comparator;
+
+
+import java.util.*;
 
 class IndexPairsofaString {
     Trie root;
     public int[][] indexPairs(String text, String[] words) {
         root = new Trie(' ');
         for (String word: words)insert(root, word);
-        Set<List<Integer>>set = new TreeSet<>(new Comparator<List<Integer>>(){
+        Set<List<Integer>> set = new TreeSet<>(new Comparator<List<Integer>>(){
             public int compare(List<Integer>x,List<Integer>y){
                 if (x.get(0)==y.get(0))return x.get(1)-y.get(1);
                 else return x.get(0)-y.get(0);
@@ -79,13 +77,3 @@ class IndexPairsofaString {
         }
 }
 
-class Trie{
-    char c;
-    Map<Character, Trie>children;
-    boolean finish;
-    public Trie(char c){
-        this.c=c;
-        this.children = new HashMap<>();
-        this.finish=false;
-    }
-}

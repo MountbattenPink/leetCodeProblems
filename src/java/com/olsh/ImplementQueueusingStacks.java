@@ -21,14 +21,15 @@ You may assume that all operations are valid (for example, no pop or peek operat
 */
 
 package com.olsh;
-import java.lang.Deque;
-import java.lang.LinkedList;
 
-class MyQueue {
-Deque<Integer>a;
+import java.util.Deque;
+import java.util.LinkedList;
+
+class ImplementQueueusingStacks {
+Deque<Integer> a;
 Deque<Integer>b;
     /** Initialize your data structure here. */
-    public MyQueue() {
+    public ImplementQueueusingStacks() {
         a = new LinkedList<>();
         b = new LinkedList<>();
     }

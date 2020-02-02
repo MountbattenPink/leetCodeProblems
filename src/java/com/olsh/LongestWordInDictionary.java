@@ -31,7 +31,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class LongestWordInDictionary {
-    Trie root = new Trie(' ');
+    TrieLongestWord root = new TrieLongestWord(' ');
 
     public String longestWord(String[] words) {
         for (String word: words)root.addWord(word);
@@ -44,7 +44,7 @@ public class LongestWordInDictionary {
         return longest;
     }
 
-    public void longestWord(Set<String> answers, Trie root) {
+    public void longestWord(Set<String> answers, TrieLongestWord root) {
         for (char c: root.children.keySet())
             if (root.children.get(c).finish){
                 answers.add(root.children.get(c).wordFinished);
@@ -53,13 +53,13 @@ public class LongestWordInDictionary {
 
 
 
-class Trie{
-    Map<Character, Trie> children;
+class TrieLongestWord{
+    Map<Character, TrieLongestWord> children;
     boolean finish;
     char val;
     String wordFinished;
 
-    public Trie(char c){
+    public TrieLongestWord(char c){
         this.val=c;
         children = new HashMap<>();
         finish = false;
@@ -67,10 +67,10 @@ class Trie{
     }
 
     public void addWord(String word) {
-        Trie currentRoot = this;
+        TrieLongestWord currentRoot = this;
         for (char c: word.toCharArray()){
             if (currentRoot.children.get(c)==null){
-                currentRoot.children.put(c, new Trie(c));
+                currentRoot.children.put(c, new TrieLongestWord(c));
             }
             currentRoot = currentRoot.children.get(c);
         }
