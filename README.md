@@ -6,3 +6,6 @@ solved 331/500 so far
 184 easy
 136 medium
 11 hard
+
+
+https://leetcode.com/olsh/
