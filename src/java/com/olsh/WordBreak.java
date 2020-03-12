@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Character;
 import java.util.Map;
 import java.util.HashMap;
+import com.olsh.entities;
 
 class WordBreak {
     public boolean wordBreak(String s, List<String> wordDict) {
@@ -64,17 +65,6 @@ class WordBreak {
             }
             else
             return searchWord(word,index+1,currentRoot.children.get(c),root);
-            }
         }
-    }
-
-class Trie{
-    char c;
-    Map<Character, Trie>children;
-    boolean finish;
-    
-    public Trie(char c){
-        this.c=c;
-        children = new HashMap<>();
-    }
+     }
 }
