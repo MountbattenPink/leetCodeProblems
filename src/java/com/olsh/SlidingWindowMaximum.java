@@ -22,6 +22,7 @@ You may assume k is always valid, 1 ≤ k ≤ input array's size for non-empty a
 Follow up:
 Could you solve it in linear time?
 */
+package com.olsh;
 class SlidingWindowMaximum {
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums.length==0)return new int[0];
