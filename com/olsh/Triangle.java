@@ -16,6 +16,9 @@ Bonus point if you are able to do this using only O(n) extra space, where n is t
 */
 package com.olsh;
 import java.lang.Integer;
+import java.lang.List;
+import java.lang.Math;
+
 class Triangle {
     public int minimumTotal(List<List<Integer>> triangle) {
         for (int i=1;i<triangle.size();i++){
