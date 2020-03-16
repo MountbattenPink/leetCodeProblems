@@ -24,28 +24,82 @@ cache.get(1);       // returns -1 (not found)
 cache.get(3);       // returns 3
 cache.get(4);       // returns 4
 */
-
-import java.util.LinkedHashMap;
-import java.util.Map;
+package com.olsh;
+import java.lang.Integer;
+import java.lang.Map;
+import java.lang.HashMap;
 
 class LRUCache {
-    private Map<Integer, Integer> cache;
-    
+    Map<Integer, Node>map;
+    Node head;
+    Node tail;
+    int capacity;
     public LRUCache(int capacity) {
-        cache = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true){
-            @Override
-            public boolean removeEldestEntry(Map.Entry eldest){
-                return size()>capacity;
-            }
-        };
+        this.map = new HashMap<>();
+        this.head = new Node();
+        this.tail = new Node();
+        head.next = tail;
+        tail.prev = head;
+        this.capacity = capacity;
     }
     
     public int get(int key) {
-        return cache.getOrDefault(key, -1);
+        if (!map.containsKey(key))return -1;
+        else {
+            pushUp(key);
+            return map.get(key).val;
+        }
     }
     
     public void put(int key, int value) {
-        cache.put(key,value);
+        if (!map.containsKey(key)){
+            if (map.size()==capacity){
+                Node n = tail.prev;
+                map.remove(n.key);
+                tail.prev = n.prev;
+                tail.prev.next = tail;
+            }
+            Node n = new Node(key, value);
+            map.put(key, n);
+            n.next = head.next;
+            n.prev = head;
+            head.next = n;
+            n.next.prev = n;
+        }
+        else {
+            map.get(key).val = value;
+            pushUp(key);
+        }
+    }
+    
+    public void pushUp(int key){
+         Node n = map.get(key);
+            n.prev.next = n.next;
+            n.next.prev = n.prev;
+            n.next = head.next;
+            n.prev = head;
+            head.next.prev = n;
+            head.next = n;
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
+class Node{
+    Node prev;
+    Node next;
+    int key;
+    int val;
+    public Node(int key, int val){
+        this.key = key;
+        this.val = val;
+    }
+    public Node(){
+        super();
     }
 }
 
