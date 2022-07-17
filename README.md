@@ -1,11 +1,11 @@
 # leetCodeProblems
-My goal is to solve 700 problems at leetCode.com
+My goal is to solve 1000 problems at leetCode.com
 
-solved 686/700 so far
+solved 700/1000 so far
 
-294 easy
-329 medium
-63 hard
+293 easy
+341 medium
+66 hard
 
 
 https://leetcode.com/olsh/
